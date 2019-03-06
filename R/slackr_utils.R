@@ -26,7 +26,7 @@ slackr_chtrans <- function(channels, api_token=Sys.getenv("SLACK_API_TOKEN")) {
   if (length(users) > 0) { chan_list <- bind_rows(chan_list, users[, c("id", "name")]) }
   if (length(groups) > 0) { chan_list <- bind_rows(chan_list, groups[, c("id", "name")]) }
 
-  chan_list <- dplyr::distinct(chan_list)
+  #chan_list <- dplyr::distinct(chan_list)
 
   chan_list <- data.frame(chan_list, stringsAsFactors=FALSE)
   chan_xref <- chan_list[chan_list$name %in% channels, ]
